@@ -20,4 +20,5 @@ for (m in 3:(2*n+2)){
     Q[m,e] <- (Q[m,e-1] - Q[m-1,e-1])/(z[m] - z[m-e+1])
   }
 }
+return (Q)
 }
