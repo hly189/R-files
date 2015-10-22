@@ -1,13 +1,14 @@
 newton <- function (f, df, x0, N, epsilon) {
   # f is the function and df is its derivative
   # x0 is intial guess 
-  # epsilon is somenumber which is really small but greater than 0
+  # epsilon is some numbers which is really small but greater than 0
    #N is the number of iteration
+  p <- numeric(N)
   for (i in 1:N) {
-    newton <- x0 - f(x0)/df(x0)
+    newton <- x0 - f(x0)/df(x0) #compute newton's method 
+    p[i] <- newton
     if(abs(newton - x0) < epsilon) break 
-    x0 <- newton
-    cat(sprintf("\"%f\" \"%f\"\n", df$i, df$newton))
+    x0 <- newton #update x0
     }
-  return (newton)
+  return (p[1:N])
 }
